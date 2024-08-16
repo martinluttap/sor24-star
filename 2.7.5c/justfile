@@ -1,4 +1,4 @@
-SOFTWARE := "star2"
+SOFTWARE := "sor24-star"
 DOCKERFILE := "../Dockerfile.multi"
 
 VERSION := `basename $(pwd)`

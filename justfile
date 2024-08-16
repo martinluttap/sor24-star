@@ -1,4 +1,4 @@
-SOFTWARE := "star2"
+SOFTWARE := "sor24-star"
 init: _init-hooks
 
 _init-hooks:
@@ -18,6 +18,17 @@ build-all:
         if [ -d "${dir}" ]; then
             if [ -f "${dir}"/justfile ]; then
                 just build "${dir}";
+            fi
+        fi
+    done
+
+# Publish all docker images
+publish-all:
+    #!/bin/bash
+    for dir in `ls .`; do
+        if [ -d "${dir}" ]; then
+            if [ -f "${dir}"/justfile ]; then
+                just publish "${dir}";
             fi
         fi
     done
