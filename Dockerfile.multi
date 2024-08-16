@@ -1,0 +1,14 @@
+FROM ubuntu:20.04 as builder
+
+ARG VERSION
+
+ENV URL=https://github.com/alexdobin/STAR/archive/${VERSION}.tar.gz
+
+RUN apt-get update \
+        && apt-get install -y wget \
+        && wget $URL \
+        && tar -xzf ${VERSION}.tar.gz \
+        && rm ${VERSION}.tar.gz \
+        && cp STAR-${VERSION}/bin/Linux_x86_64_static/STAR /usr/local/bin/STAR \
+        && rm -rf STAR-${VERSION} \
+        && apt-get remove -y wget

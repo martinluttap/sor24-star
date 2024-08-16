@@ -1,0 +1,14 @@
+SOFTWARE := "star2"
+DOCKERFILE := "../Dockerfile.multi"
+
+VERSION := `basename $(pwd)`
+
+emit-dockerfile:
+    @echo {{DOCKERFILE}}
+
+build-docker:
+  docker buildx build --compress --progress plain \
+  -t "{{SOFTWARE}}-{{VERSION}}" \
+  -f {{DOCKERFILE}} \
+  . \
+  --build-arg VERSION="{{VERSION}}"
