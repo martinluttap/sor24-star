@@ -8,7 +8,7 @@ emit-dockerfile:
 
 build-docker:
   docker buildx build --compress --progress plain \
-  -t "{{SOFTWARE}}-{{VERSION}}" \
+  -t "{{SOFTWARE}}" \
   -f {{DOCKERFILE}} \
   . \
   --build-arg VERSION="{{VERSION}}"
