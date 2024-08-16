@@ -8,7 +8,7 @@ emit-dockerfile:
 
 build-docker:
   docker buildx build --compress --progress plain \
-  -t "{{SOFTWARE}}" \
+  -t ghcr.io/martinluttap/"{{SOFTWARE}}" \
   -f {{DOCKERFILE}} \
   . \
   --build-arg VERSION="{{VERSION}}"
